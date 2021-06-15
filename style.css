@@ -1,0 +1,911 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a{
+text-decoration: none;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header */
+#header{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: auto;
+}
+
+#header .header{
+    min-height: 8vh;
+    background-color: rgb(31 , 30 , 30 , .24);
+}
+
+#header .nav-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 100px;
+}
+
+#header .nav-list ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgb(31,30,30);
+    left: 100%;
+    top: 0;
+    align-items: center;
+    z-index: 1;
+    transition: 1s ease ;
+}
+
+#header .nav-list ul.active{
+left: 0;
+}
+
+
+
+#header .nav-list ul a{
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    color: white;
+    text-transform: uppercase;
+    display: block;
+    padding:20px;
+
+}
+
+
+
+#header .nav-list ul a::after{
+    content: attr(data-after);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: rgba(240 , 248 ,255 ,0.021);
+    font-size: 12rem;
+    transform: translate(-50% , -50%) scale(0);
+    letter-spacing: 50px;
+    z-index:-1 ;
+    transition: .3s ease letter-spacing ;
+
+}
+#header .nav-list ul li:hover a::after{
+    transform: translate(-50% , -50%) scale(1);
+    letter-spacing: initial;
+
+}
+
+#header .nav-list ul li:hover a{
+    color: crimson;
+}
+
+#header .humborger{
+    width: 60px;
+    height: 60px;
+    border: 3px solid white;
+    position: relative;
+    z-index: 100;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transform: scale(.8);
+}
+
+
+#header .humborger::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid white;
+    animation: humburger_menu .5s ease infinite;
+}
+#header .humborger .bar{
+    height: 3px;
+    width: 30px;
+    position: relative;
+    background-color: white;
+    z-index: -1;
+
+}
+
+#header .humborger .bar::after ,
+ #header .humborger .bar::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    left: 0;
+    transition: .3s ease;
+    transition-property: top , bottom;
+
+}
+
+#header .humborger .bar::after{
+    top: 8px;
+}
+
+#header .humborger .bar::before {
+    bottom: 8px;
+}
+
+#header .humborger.active .bar::after{
+    top: 0;
+}
+
+#header .humborger.active .bar::before {
+    bottom: 0;
+}
+
+/* End Header */
+
+#hero{
+    background-image: url(img/hero-bg.png);
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+}
+
+#hero::after{
+    content: '';
+    position: absolute;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    z-index: -1;
+
+}
+
+#hero h1{
+    color: transparent;
+    font-size: 4rem;
+    display: block;
+    width: fit-content;
+    position: relative;
+    animation: color 2s ease forwards;
+    animation-delay: 1.5s;
+}
+
+#hero .hero{
+    max-width: 1200px;
+   padding: 0 50px;
+   margin: 0 auto;
+   justify-content: flex-start;
+}
+
+
+
+#hero h1 span{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: crimson;
+    width: 0;
+    height: 100%;
+    animation-name: text_box;
+    animation-duration: 1s ;
+    animation-timing-function: ease;
+     
+}
+
+#hero h1:nth-child(1){
+    animation-delay: 1.9s;
+}
+#hero h1:nth-child(2){
+   
+    animation-delay: 2.9s;
+
+}
+#hero h1:nth-child(3){
+    animation-name: color_for_header3;
+    animation-delay: 3.9s;
+}
+
+
+#hero h1:nth-child(1) span
+{
+    animation-delay: 1.5s;
+}
+
+
+#hero h1:nth-child(2) span
+{
+    animation-delay: 2.5s;
+}
+
+#hero h1:nth-child(3) span
+{
+    animation-delay: 3.5s;
+}
+
+
+
+
+#hero .btn , #about_us .btn {
+    border: 2px solid crimson;
+    padding: 10px 30px;
+    display: inline-block;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 20px;
+    font-size: 2rem;
+    transition-property: background-color;
+}
+
+#about_us .btn{
+    color: black;
+}
+
+.btn:hover{
+    background-color: crimson;
+}
+
+/* Service */
+#service .service{
+    text-align: center;
+    margin: 0 auto;
+    flex-direction: column;
+    padding: 100px 0;
+
+}
+
+
+#service .service_title
+{
+    color: black;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 4rem;
+    letter-spacing: .2rem;
+    margin-top: 30px;
+}
+
+#service .service_title span{
+    color: crimson;
+}
+
+#service .service_top{
+    
+    margin-bottom: 150px;
+}
+
+#service .service_top p{
+    margin-top: 5px;
+    color:black;
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: .05rem;
+    line-height: 2.5rem;
+}
+
+
+#service .service_item{
+display: flex;
+flex-direction: column;
+flex-basis: 80%;
+justify-content: flex-start;
+align-items: flex-start;
+padding: 30px;
+background-image: url(img/img-1.png);
+background-size: cover;
+border-radius: 10px;
+margin: 10px 5%;
+position: relative;
+z-index: 1;
+}
+
+#service .service_down{
+    display: flex;
+    
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: -100px;
+    padding: 38px;
+ 
+}
+
+
+#service .service_item::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    border-radius: 10px;
+    opacity: .7;
+    z-index: -1;
+}
+
+#service .service_item_title{
+    color: white;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+
+#service .service_down p{
+    color: white;
+    font-size: 1.4rem;
+    text-align: left ;
+    line-height: 2.4rem;
+    
+}
+
+#service .service_icon{
+    height: 80px;
+    width: 80px;
+    margin:20px;
+  
+    
+}
+
+#service .service_icon img{
+   width: 100%;
+   height: 100%;
+
+    
+}
+
+/* End service */
+
+
+
+
+/* recent projects */
+.recent_project{
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+
+#recent_project .recent_project .project_header h1 , #contact .project_header h1{
+    color: black;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 3rem;
+    letter-spacing: .2rem;
+
+}
+
+#recent_project .recent_project h1 span , #about_us .about_us_title span , #contact .project_header span{
+    color: crimson;
+}
+
+#recent_project .projects{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+    width: 90%;
+}
+
+.project_img img{
+    width: 100%;
+    height: 100%;
+   
+}
+
+.project_img{
+    flex-basis: 50%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+
+ #recent_project .project_info h2{
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+#recent_project .project_item{
+   
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.projects .project_info{
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    padding:30px;
+
+}
+
+.projects .project_info h1{
+    color: white;
+    font-size: 4rem;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+
+.projects .project_info p{
+    color: white;
+    font-weight: 300;
+    font-size: 1.4rem;
+    text-align: left;
+    line-height: 2.4rem;
+    letter-spacing: 0.05rem;
+    padding-bottom: 10px;
+  
+}
+
+
+
+.projects .project_info h2{
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+
+}
+
+
+#recent_project .project_img::after{
+content: '';
+position: absolute;
+left: 0;
+top: 0;
+background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+width: 100%;
+height: 100%;
+opacity: 0.7;
+border-radius: 10px;
+
+}
+
+/* End recent projects */
+#about_us .about_us_title
+{
+color: black;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 4rem;
+    letter-spacing: .2rem;
+    margin-top: 30px;
+}
+/* About us */
+
+#about_us .about_us{
+    text-align: center;
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start;
+   
+}
+
+
+
+#about_us h2{
+padding-top: 10px;    
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+font-size: 1.8rem;
+font-weight: 500;
+letter-spacing: 0.2rem;
+margin-bottom: 10px;
+text-transform: uppercase;
+}
+
+#about_us p{
+color: black;
+font-size: 1.4rem;
+margin-top: 5px;
+line-height: 2.5rem;
+font-weight: 300;
+letter-spacing: 0.04rem;
+padding-bottom: 30px;
+}
+
+
+#about_us .left_side_about_me{
+    width: 250px;
+    height: 360px;
+    margin-bottom: 66px;
+    margin-top: 50px
+}
+
+#about_us .left_side_about_me .about_img {
+  border: 10px solid white;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+#about_us .left_side_about_me .about_img::after {
+content: '';
+position: absolute;
+top: 25px;
+left: -30px;
+height: 95% ;
+width: 95%;
+border: 7px solid crimson;
+z-index: -1;
+}
+
+
+#about_us .left_side_about_me .about_img img{
+    width: 100%;
+    height: 100%;
+}
+/* End About us */
+
+
+/* Contact Info */
+#contact .contact
+{
+    
+ flex-direction: column;
+width: 80%;
+text-align: center;
+
+margin: 0 auto;
+margin-top: 100px;
+}
+
+
+#contact .contact_items
+{
+   
+    display: flex;
+    padding: 10px;
+    flex-basis: 80%;
+    flex-direction: column;
+}
+#contact .contact_item{
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    flex-basis: 100%;
+    height: 290px;
+    padding:30px;
+    box-shadow: 0px 0px 18px 0 #0000002c;
+    transition: .3s ease box-shadow ;
+}
+
+#contact .contact_item:hover{
+    box-shadow: 0px 0px 5px 0 #0000002c;
+}
+
+#contact .contact_img{
+    width: 80px;
+}
+
+#contact .contact_img img{
+    width: 100%;
+}
+
+
+#contact .contact_info h1{
+    font-size: 2.5rem;
+font-weight: 500;
+margin-bottom: 5px;
+}
+
+
+#contact .contact_info h2{
+    font-size: 1.3rem;
+line-height: 2rem;
+font-weight: 500;
+}
+
+/* End Contact Info */
+
+/* footer */
+#footer .footer
+{
+    flex-direction: column;
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    margin-top: 50px;
+    min-height: 40vh;
+}
+
+#footer .social_media
+{
+    display: flex;
+}
+.brand h1{
+    font-size: 2.5rem;
+text-transform: uppercase;
+color: white;
+}
+.brand h1 span{
+    color: crimson;
+}
+
+#footer h2{
+    color: white;
+font-weight: 500;
+font-size: 1.8rem;
+letter-spacing: 0.1rem;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+#footer .social_media
+{
+    padding-top: 10px;
+}
+
+
+#footer .social_item a img{
+    filter: grayscale(1);
+}
+#footer .social_item a img:hover{
+    filter: grayscale(0);
+}
+
+#footer .copy_right{
+    margin-top: 10px;
+    color: white;
+    font-size: 1.3rem;
+}
+/* End footer */
+
+
+
+/* Key Frams */
+@keyframes text_box{
+    50%{
+        width:100%;
+        left: 0;
+    }
+    100%{
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes humburger_menu {
+    0%{
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100%{
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+
+@keyframes text_box_reverce{
+    50%{
+        width: 100%;
+        left: 0;
+    }
+
+    100%{
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes color{
+    to{
+        color: white;
+    }
+}
+
+@keyframes color_for_header3{
+    to{
+        color: crimson;
+    }
+}
+
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  
+   #service .service_down .service_item{
+    flex-basis: 45%;
+    margin:10px;
+   
+   }
+
+   #about_us .about_us{
+       flex-direction: row;
+       min-height: 100px;
+    margin: 10%;
+   }
+   #about_us .left_side_about_me{
+       width: 600px;
+       height: 400px;
+   }
+
+   #about_us .right_side_about_me{
+       width: 600px;
+       text-align: left;
+       padding: 20px;
+      
+   }
+   #about_us p{
+       font-size: 1.4rem;
+       letter-spacing: 0.01rem;
+
+   }
+
+   #about_us .btn{
+       height: 50px;
+      width: 300px;
+      margin-top: -100px;;
+   }
+   #recent_project .projects{
+       width: 100%;
+   }
+
+   #recent_project .recent_project
+   {
+       width: 100%;
+   } 
+   #recent_project .project_item{
+       flex-direction: row;
+       margin-bottom: 0%;
+   }
+
+   .projects .project_info
+   {
+       padding-top: 100px;
+       flex-basis: 50%;
+   }
+
+ .projects .project_img
+   {
+    flex-basis: 50%;
+    height:425px;
+   }
+   #recent_project .projects .project_item:nth-child(2) , #recent_project .projects .project_item:nth-child(4)
+   {
+       flex-direction: row-reverse;
+   }
+
+   #recent_project .project_img::after {
+    border-radius: 0%;
+   }
+
+   #contact .contact{
+       width: 100%;
+       justify-content: flex-start;
+       min-height:100px;
+
+   }
+
+   #contact .contact_items{
+   flex-direction: row;
+   width: 100%;
+   }
+   #contact .contact_item{
+       display: flex;
+      flex-direction: row;
+      margin:10px;
+    text-align: left;
+    height: 162px;
+}
+
+#contact .contact_img{
+    width: 75px;
+}
+#contact .contact_img{
+    flex-basis: 40%;
+}
+#contact .contact_item{
+    flex-basis: 60%;
+}
+}
+/* End of tablet */
+
+/* media for labtop */
+@media screen and (min-width: 1200px)
+{
+    #service .service_top {
+        width: 60%;
+        margin: 105px;
+    }
+    #service .service_down{
+        padding:0%;
+    }
+
+    #service .service_down .service_item{
+        
+        flex-basis: 21%;
+    margin: 22px;
+       
+       }
+       #about_us .about_us{
+           margin-top: 90px;
+       }
+       #recent_project .recent_project{
+           width: 90%;
+       }
+
+       #about_us .right_side_about_me{
+           flex-basis: 60%;
+       }
+       #about_us .left_side_about_me{
+           flex-basis: 40%;
+       }
+
+       #contact .contact_img {
+           flex-basis: 30%;
+       }
+       #contact .contact{
+           min-height: 0%;
+           width: 80%;
+           margin-top: 3%;
+           justify-content: flex-start
+       }
+
+
+       #header .humborger{
+           display: none;
+       }
+
+       #header .nav-list ul{
+           position: initial;
+           background-color: transparent;
+           display: block;
+           width: fit-content;
+           height: auto;
+       }
+       #header .nav-list ul li{
+           display: inline-block;
+       }
+       #header .nav-list ul li a{
+           font-size: 1.8rem;
+       }
+       #header .nav-list ul a::after{
+           display: none;
+       }
+
+} 
+/* End media for labtop */
